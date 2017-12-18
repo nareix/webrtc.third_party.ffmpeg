@@ -639,6 +639,7 @@ LICENSE_WHITELIST = [
     'LGPL (v2.1 or later) GENERATED FILE',
     'MIT/X11 (BSD like)',
     'Public domain LGPL (v2.1 or later)',
+    'BSL LGPL (v2.1 or later) GENERATED FILE',
 ]
 
 
@@ -782,6 +783,8 @@ def CheckLicensesForStaticLinking(sources_to_check, source_dir, print_licenses):
 
 
 def FixBasenameCollision(old_path, new_path, content):
+  import os
+  print os.getcwd(), new_path, old_path, content
   with open(new_path, "w") as new_file:
     new_file.write(content)
 
@@ -878,6 +881,7 @@ def main():
         build_dir = os.path.join(options.build_dir, name, target)
         if not os.path.exists(build_dir):
           continue
+        print arch, target, platform
         print 'Processing build directory: %s' % name
 
         object_files = GetObjectFiles(build_dir)

@@ -247,6 +247,8 @@ def BuildFFmpeg(target_os, target_arch, host_os, host_arch, parallel_jobs,
         os.path.join('libavcodec', GetDsoName(target_os, 'avcodec', 57)),
         os.path.join('libavformat', GetDsoName(target_os, 'avformat', 57)),
         os.path.join('libavutil', GetDsoName(target_os, 'avutil', 55)),
+        os.path.join('libswscale', GetDsoName(target_os, 'swscale', 4)),
+        os.path.join('libswresample', GetDsoName(target_os, 'swresample', 2)),
     ]
     PrintAndCheckCall(
         ['make', '-j%d' % parallel_jobs] + libraries, cwd=config_dir)
@@ -329,6 +331,8 @@ def main(argv):
       '--enable-avcodec',
       '--enable-avformat',
       '--enable-avutil',
+      '--enable-swscale',
+      '--enable-swresample',
       '--enable-fft',
       '--enable-rdft',
       '--enable-static',

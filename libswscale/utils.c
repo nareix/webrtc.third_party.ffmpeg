@@ -22,7 +22,9 @@
 
 #define _DEFAULT_SOURCE
 #define _SVID_SOURCE // needed for MAP_ANONYMOUS
+#ifndef _DARWIN_C_SOURCE
 #define _DARWIN_C_SOURCE // needed for MAP_ANON
+#endif
 #include <inttypes.h>
 #include <math.h>
 #include <stdio.h>
@@ -1582,7 +1584,7 @@ av_cold int sws_init_context(SwsContext *c, SwsFilter *srcFilter,
             c->chrMmxextFilterCodeSize = ff_init_hscaler_mmxext(c->chrDstW, c->chrXInc,
                                                              NULL, NULL, NULL, 4);
 
-#if USE_MMAP
+#if defined(USE_MMAP)
             c->lumMmxextFilterCode = mmap(NULL, c->lumMmxextFilterCodeSize,
                                           PROT_READ | PROT_WRITE,
                                           MAP_PRIVATE | MAP_ANONYMOUS,
@@ -1625,7 +1627,7 @@ av_cold int sws_init_context(SwsContext *c, SwsFilter *srcFilter,
             ff_init_hscaler_mmxext(c->chrDstW, c->chrXInc, c->chrMmxextFilterCode,
                                 c->hChrFilter, (uint32_t*)c->hChrFilterPos, 4);
 
-#if USE_MMAP
+#if defined(USE_MMAP)
             if (   mprotect(c->lumMmxextFilterCode, c->lumMmxextFilterCodeSize, PROT_EXEC | PROT_READ) == -1
                 || mprotect(c->chrMmxextFilterCode, c->chrMmxextFilterCodeSize, PROT_EXEC | PROT_READ) == -1) {
                 av_log(c, AV_LOG_ERROR, "mprotect failed, cannot use fast bilinear scaler\n");
@@ -2297,7 +2299,7 @@ void sws_freeContext(SwsContext *c)
     av_freep(&c->hChrFilterPos);
 
 #if HAVE_MMX_INLINE
-#if USE_MMAP
+#if defined(USE_MMAP)
     if (c->lumMmxextFilterCode)
         munmap(c->lumMmxextFilterCode, c->lumMmxextFilterCodeSize);
     if (c->chrMmxextFilterCode)
