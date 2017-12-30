@@ -640,6 +640,7 @@ LICENSE_WHITELIST = [
     'MIT/X11 (BSD like)',
     'Public domain LGPL (v2.1 or later)',
     'BSL LGPL (v2.1 or later) GENERATED FILE',
+    'ISC',
 ]
 
 
