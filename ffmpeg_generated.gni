@@ -14,7 +14,7 @@ ffmpeg_yasm_sources = []
 
 use_linux_config = is_linux || is_fuchsia
 
-if (is_mac) {
+if (is_mac || is_linux) {
   ffmpeg_c_sources += [
     "libavcodec/allcodecs.c",
     "libavcodec/audio_frame_queue.c",
@@ -250,7 +250,7 @@ if (is_mac) {
   ]
 }
 
-if (is_mac && ffmpeg_branding == "Chrome") {
+if ((is_mac || is_linux) && ffmpeg_branding == "Chrome") {
   ffmpeg_c_sources += [
     "libavcodec/aac_ac3_parser.c",
     "libavcodec/aac_parser.c",
