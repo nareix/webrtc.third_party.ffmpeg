@@ -207,8 +207,8 @@ target(link_target_type, "ffmpeg_internal") {
   deps = [
     ":ffmpeg_features",
     "//third_party/opus",
-    "//third_party/libx264_static",
-    "//third_party/fdkaac_static",
+    "//third_party/x264",
+    "//third_party/fdkaac",
   ]
 
   configs -= [ "//build/config/compiler:chromium_code" ]
