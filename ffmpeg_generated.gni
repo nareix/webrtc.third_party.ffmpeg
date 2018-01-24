@@ -1,6 +1,6 @@
 if (is_linux) {
-	import("ffmpeg_generated_linux.gni")
+  import("ffmpeg_generated_linux.gni")
 }
 if (is_mac) {
-	import("ffmpeg_generated_mac.gni")
+  import("ffmpeg_generated_mac.gni")
 }
