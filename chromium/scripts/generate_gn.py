@@ -578,7 +578,16 @@ def ParseOptions():
                     action='store_true',
                     help='Print all licenses to console.')
 
+  parser.add_option('-o',
+                    '--os',
+                    dest='os',
+                    default='',
+                    help='os')
+
   options, args = parser.parse_args()
+
+  if not options.os:
+    parser.error('No os specified')
 
   if not options.source_dir:
     parser.error('No FFmpeg source directory specified')
@@ -922,7 +931,7 @@ def main():
   print 'License checks passed.'
   UpdateCredits(sources_to_check, source_dir)
 
-  gn_file_name = os.path.join(options.source_dir, 'ffmpeg_generated.gni')
+  gn_file_name = os.path.join(options.source_dir, 'ffmpeg_generated_%s.gni' % options.os)
   print 'Writing:', gn_file_name
   with open(gn_file_name, 'w') as fd:
     WriteGn(fd, sets)

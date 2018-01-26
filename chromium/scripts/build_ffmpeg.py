@@ -335,6 +335,7 @@ def main(argv):
       '--enable-swresample',
       '--enable-libx264',
       '--enable-encoder=libx264',
+      '--enable-decoder=h264',
       '--enable-libfdk-aac',
       '--enable-encoder=libfdk_aac',      
       '--enable-gpl',
