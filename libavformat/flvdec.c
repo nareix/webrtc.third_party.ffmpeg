@@ -138,6 +138,7 @@ static AVStream *create_stream(AVFormatContext *s, int codec_type)
     AVStream *st = avformat_new_stream(s, NULL);
     if (!st)
         return NULL;
+
     st->codecpar->codec_type = codec_type;
     if (s->nb_streams>=3 ||(   s->nb_streams==2
                            && s->streams[0]->codecpar->codec_type != AVMEDIA_TYPE_SUBTITLE

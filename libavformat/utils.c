@@ -21,6 +21,7 @@
 
 #include <stdarg.h>
 #include <stdint.h>
+#include <unistd.h>
 
 #include "config.h"
 
@@ -3533,6 +3534,7 @@ int avformat_find_stream_info(AVFormatContext *ic, AVDictionary **options)
         const AVCodec *codec;
         AVDictionary *thread_opt = NULL;
         st = ic->streams[i];
+
         avctx = st->internal->avctx;
 
         if (st->codecpar->codec_type == AVMEDIA_TYPE_VIDEO ||
@@ -3628,6 +3630,7 @@ FF_ENABLE_DEPRECATION_WARNINGS
             int fps_analyze_framecount = 20;
 
             st = ic->streams[i];
+
             if (!has_codec_parameters(st, NULL))
                 break;
             /* If the timebase is coarse (like the usual millisecond precision
@@ -4063,6 +4066,7 @@ FF_ENABLE_DEPRECATION_WARNINGS
 find_stream_info_err:
     for (i = 0; i < ic->nb_streams; i++) {
         st = ic->streams[i];
+
         if (st->info)
             av_freep(&st->info->duration_error);
         av_freep(&ic->streams[i]->info);

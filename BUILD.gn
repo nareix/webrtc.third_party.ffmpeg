@@ -62,6 +62,9 @@ config("ffmpeg_dependent_config") {
     platform_config_root,
     ".",
   ]
+  defines = [
+    "FF_API_CONVERGENCE_DURATION=0",
+  ]
 }
 
 if (is_win) {
@@ -164,6 +167,7 @@ if (is_component_ffmpeg) {
   # in many large global arrays (and associated code) into chrome.dll.
   link_target_type = "static_library"
 }
+
 target(link_target_type, "ffmpeg_internal") {
   sources = ffmpeg_c_sources + ffmpeg_gas_sources + [
               "$platform_config_root/config.h",
