@@ -355,7 +355,7 @@ def main(argv):
       '--disable-sdl',
       '--disable-symver',
       '--disable-xlib',
-      '--disable-zlib',
+      #'--disable-zlib',
       '--disable-securetransport',
 
       # Disable hardware decoding options which will sometimes turn on
@@ -371,12 +371,12 @@ def main(argv):
       '--disable-cuvid',
 
       # Common codecs.
-      '--enable-decoder=vorbis,libopus,flac,aac',
+      '--enable-decoder=vorbis,libopus,flac,aac,png',
       '--enable-decoder=pcm_u8,pcm_s16le,pcm_s24le,pcm_s32le,pcm_f32le',
       '--enable-decoder=pcm_s16be,pcm_s24be,pcm_mulaw,pcm_alaw',
-      '--enable-demuxer=ogg,matroska,wav,flac,flv',
+      '--enable-demuxer=ogg,matroska,wav,flac,flv,image_png_pipe',
       '--enable-parser=opus,vorbis,flac',
-      '--enable-protocol=file',      
+      '--enable-protocol=file,pipe',      
 
       # Setup include path so Chromium's libopus can be used.
       '--extra-cflags=-I' + os.path.join(CHROMIUM_ROOT_DIR,
