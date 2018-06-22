@@ -339,6 +339,8 @@ def main(argv):
       '--enable-libfdk-aac',
       '--enable-encoder=libfdk_aac',      
       '--enable-gpl',
+      '--enable-nvenc',
+      '--enable-cuda',
       '--enable-nonfree',
       '--enable-fft',
       '--enable-rdft',
@@ -366,8 +368,6 @@ def main(argv):
       '--disable-vda',
       '--disable-vdpau',
       '--disable-videotoolbox',
-      '--disable-nvenc',
-      '--disable-cuda',
       '--disable-cuvid',
 
       # Common codecs.

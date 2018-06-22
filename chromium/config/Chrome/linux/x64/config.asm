@@ -52,7 +52,7 @@
 %define HAVE_SSE42 1
 %define HAVE_SSSE3 1
 %define HAVE_XOP 1
-%define HAVE_CPUNOP 0
+%define HAVE_CPUNOP 1
 %define HAVE_I686 1
 %define HAVE_MIPSFPU 0
 %define HAVE_MIPS32R2 0
@@ -486,11 +486,11 @@
 %define CONFIG_OPENGL 0
 %define CONFIG_VIDEOTOOLBOX 0
 %define CONFIG_AUDIOTOOLBOX 0
-%define CONFIG_CUDA 0
+%define CONFIG_CUDA 1
 %define CONFIG_CUVID 0
 %define CONFIG_D3D11VA 0
 %define CONFIG_DXVA2 0
-%define CONFIG_NVENC 0
+%define CONFIG_NVENC 1
 %define CONFIG_VAAPI 0
 %define CONFIG_VDA 0
 %define CONFIG_VDPAU 0
