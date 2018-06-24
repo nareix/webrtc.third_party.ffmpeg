@@ -352,7 +352,7 @@ def main(argv):
       '--disable-error-resilience',
       '--disable-iconv',
       '--disable-lzo',
-      '--disable-network',
+      #'--disable-network',
       '--disable-schannel',
       '--disable-sdl',
       '--disable-symver',
@@ -376,7 +376,7 @@ def main(argv):
       '--enable-decoder=pcm_s16be,pcm_s24be,pcm_mulaw,pcm_alaw',
       '--enable-demuxer=ogg,matroska,wav,flac,flv,image_png_pipe',
       '--enable-parser=opus,vorbis,flac',
-      '--enable-protocol=file,pipe',      
+      '--enable-protocol=file,pipe,http',      
 
       # Setup include path so Chromium's libopus can be used.
       '--extra-cflags=-I' + os.path.join(CHROMIUM_ROOT_DIR,
