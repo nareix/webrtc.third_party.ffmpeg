@@ -207,7 +207,7 @@ target(link_target_type, "ffmpeg_internal") {
   # So we can append below and assume they're defined.
   cflags = []
   ldflags = []
-  libs = []
+  libs = [ "z" ]
   deps = [
     ":ffmpeg_features",
     "//third_party/opus",
